@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ContactBook.Extensions.SwitchInput">
+   
+    <StackLayout Margin="{Binding Margin}" Visual="{Binding Visual}">
+        <StackLayout.Orientation>
+            <OnPlatform x:TypeArguments="StackOrientation" Default="Horizontal">
+                <On Platform="UWP" Value="Vertical"/>
+            </OnPlatform>
+        </StackLayout.Orientation>
+
+
+        <Grid>
+            <Grid.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" Default="True">
+                    <On Platform="UWP" Value="False"/>
+                </OnPlatform>
+            </Grid.IsVisible>
+            <Label Text="" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontFamily="{StaticResource MaterialFontFamily}" 
+                   FontSize="Title"
+                   WidthRequest="30"
+                   TextColor="Transparent"
+                   IsVisible="{Binding HasBlankGlyph}">
+            </Label>
+            <!--Glyph label-->
+            <Label x:Name="glyph"
+                   Text="{Binding Glyph}" 
+                   TextColor="{Binding GlyphColor}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontFamily="{StaticResource MaterialFontFamily}"
+                   WidthRequest="30"
+                   FontSize="Title"/>
+        </Grid>
+
+        <!--Side label-->
+        <Label Margin="2,0,0,0" Text="{Binding Label}" VerticalOptions="Center">
+            <Label.FontSize>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="12"/> <!--Caption-->
+                    <On Platform="Android" Value="16"/> <!--Body-->
+                    <On Platform="iOS" Value="17"/> <!--Body-->
+                </OnPlatform>
+            </Label.FontSize>
+        </Label>
+
+        <Switch IsToggled="{Binding IsToggled}" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding BackgroundColor}"/>
+        
+    </StackLayout>
+</ContentView>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    <!--Solution to Xaml Essentials exercise-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinTutorials.QuotesPage"
+             Visual="Material">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" Default="20">
+            <On Platform="iOS" Value="0,20,0,0"/>
+            <On Platform="Android" Value="20,30,20,20"/>
+            <On Platform="UWP" Value="20,40,20,20"/>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout BindingContext="{x:Reference slider}">
+            <Button Text="Next" HorizontalOptions="Center" Clicked="Button_Clicked" BackgroundColor="Red"/>
+            <Label Text="{Binding Value, StringFormat='Font Size: {0:F0}'}" FontSize="Subtitle"/>
+            <Slider x:Name="slider" Maximum="50" Minimum="16" ThumbColor="Red"/>
+            <Label x:Name="quoteLabel" Text="Quote #1" FontSize="{Binding Value}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

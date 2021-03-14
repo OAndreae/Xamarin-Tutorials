@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:XamarinTutorials.Models"
+             mc:Ignorable="d"
+             x:Class="XamarinTutorials.InboxPage"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid BackgroundColor="CornflowerBlue" Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Horizontal">
+                    <Image VerticalOptions="Center" Source="http://png.icons8.com/menu/Windows10/50/FFFFFF"/>
+                    <StackLayout Margin="10,0" Spacing="0" VerticalOptions="Center">
+                        <Label Text="Inbox"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           FontSize="Title"/>
+                        <Label Text="All Accounts"
+                           TextColor="White"
+                           FontSize="Caption"/>
+                    </StackLayout>
+                </StackLayout>
+                <SearchBar Grid.Row="1" Placeholder="Search" TextChanged="SearchBar_TextChanged"/>
+            </Grid>
+            <ListView x:Name="listView" 
+                      HasUnevenRows="True"
+                      SelectionMode="None"
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="ListView_Refreshing">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Email">
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" 
+                                          IsDestructive="True"
+                                          Clicked="Delete_Clicked" 
+                                          CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout Orientation="Horizontal" 
+                                         Margin="10">
+                                <Grid VerticalOptions="Start" 
+                                      Margin="0,0,20,0" 
+                                      MinimumWidthRequest="40"
+                                      MinimumHeightRequest="40">
+                                    <BoxView CornerRadius="20" 
+                                             BackgroundColor="LightPink"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="Center"
+                                             HeightRequest="40"
+                                             WidthRequest="40"/>
+                                    <Label Text="{Binding SenderInitial}"
+                                           TextColor="White"
+                                           FontSize="20"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"/>
+                                </Grid>
+                                <StackLayout Spacing="0">
+                                    <Label Text="{Binding SenderName}"
+                                       FontSize="Medium"
+                                       TextColor="Black"/>
+                                    <Label Text="{Binding Subject}"
+                                           LineBreakMode="TailTruncation"
+                                           FontSize="Small"
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding Message}"
+                                           LineBreakMode="TailTruncation" 
+                                           FontSize="Small"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

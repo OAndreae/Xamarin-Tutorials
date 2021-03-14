@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Name="page"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:ContactBook.ViewModels"
+             mc:Ignorable="d"
+             x:Class="ContactBook.ContactsPage"
+             Title="Contacts">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddContactCommand}" />
+    </ContentPage.ToolbarItems>
+    <ListView HasUnevenRows="True" 
+              SeparatorColor="Gray"
+              ItemsSource="{Binding Contacts}"
+              SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
+              ItemSelected="OnContactSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="vm:ContactViewModel">
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <ToolbarItem Text="Delete" IsDestructive="True" Command="{Binding Source={x:Reference page}, Path=ViewModel.DeleteContactCommand}" CommandParameter="{Binding .}"/>
+                    </ViewCell.ContextActions>
+                    <StackLayout>
+                        <Label Margin="10,20">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding FirstName}"/>
+                                    <Span Text=" "/>
+                                    <Span Text="{Binding Surname}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

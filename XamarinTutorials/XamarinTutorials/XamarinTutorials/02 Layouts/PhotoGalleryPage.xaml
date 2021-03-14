@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:me="clr-namespace:XamarinTutorials.MarkupExtensions"
+             mc:Ignorable="d"
+             x:Class="XamarinTutorials.PhotoGalleryPage"
+             BackgroundColor="Black">
+    <AbsoluteLayout>
+        <Image AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" AbsoluteLayout.LayoutFlags="All" 
+               Aspect="AspectFit" x:Name="image"/>
+        <Label x:Name="imageLabel" TextColor="White" FontSize="30" AbsoluteLayout.LayoutBounds="0.5,0.95,120,50" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Button AbsoluteLayout.LayoutBounds="0.05,0.05,100,100" AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="Transparent"
+                Clicked="LeftButton_Clicked">
+            <Button.ImageSource>
+                <OnPlatform x:TypeArguments="FileImageSource" Default="left.png">
+                    <On Platform="UWP" Value="Assets/left.png"/>
+                </OnPlatform>
+            </Button.ImageSource>
+        </Button>
+        <ActivityIndicator AbsoluteLayout.LayoutBounds="0.5,0.05,100,100" AbsoluteLayout.LayoutFlags="PositionProportional" 
+                           IsRunning="{Binding Source={x:Reference image}, Path=IsLoading}"/>
+        <Button AbsoluteLayout.LayoutBounds="0.95,0.05,100,100" AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="Transparent"
+                Clicked="RightButton_Clicked">
+            <Button.ImageSource>
+                <OnPlatform x:TypeArguments="FileImageSource" Default="right.png">
+                    <On Platform="UWP" Value="Assets/right.png"/>
+                </OnPlatform>
+            </Button.ImageSource>
+        </Button>
+    </AbsoluteLayout>
+
+</ContentPage>

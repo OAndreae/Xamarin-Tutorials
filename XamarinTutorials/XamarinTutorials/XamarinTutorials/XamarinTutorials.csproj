@@ -1,0 +1,138 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\android.png" />
+    <None Remove="Images\apple.png" />
+    <None Remove="Images\background.jpg" />
+    <None Remove="Images\gates.jpg" />
+    <None Remove="Images\jobs.jpg" />
+    <None Remove="Images\page.jpg" />
+    <None Remove="Images\windows.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\android.png" />
+    <EmbeddedResource Include="Images\apple.png" />
+    <EmbeddedResource Include="Images\background.jpg" />
+    <EmbeddedResource Include="Images\gates.jpg" />
+    <EmbeddedResource Include="Images\jobs.jpg" />
+    <EmbeddedResource Include="Images\page.jpg" />
+    <EmbeddedResource Include="Images\windows.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.1.0.618606" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="02 Layouts\DialPage.xaml.cs">
+      <DependentUpon>DialPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="02 Layouts\AbsolutePhoneCreditPage.xaml.cs">
+      <DependentUpon>AbsolutePhoneCreditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="03 Images\EmbeddedImagePage.xaml.cs">
+      <DependentUpon>EmbeddedImagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="02 Layouts\RelativePhoneCreditPage.xaml.cs">
+      <DependentUpon>RelativePhoneCreditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="01 XAML essentials\SliderBindingPage.xaml.cs">
+      <DependentUpon>SliderBindingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="07 Data access\OnlinePostsPage.xaml.cs">
+      <DependentUpon>OnlinePostsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="03 Images\ActivityIndicatorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="04 Lists\AirBnbSearchPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="02 Layouts\AltLoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="02 Layouts\DialPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="03 Images\EmbeddedImagePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="04 Lists\InboxPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="02 Layouts\InstagramPostPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="04 Lists\ListViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="02 Layouts\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="02 Layouts\AbsolutePhoneCreditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="02 Layouts\PhotoGalleryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="01 XAML essentials\QuotesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="02 Layouts\RelativePhoneCreditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="02 Layouts\RelaxPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="03 Images\RoundedImages.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="07 Data access\AppSettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="07 Data access\RecipesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="07 Data access\OnlinePostsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ShellDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ShellPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ShellPageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="01 XAML essentials\SliderBindingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="01 XAML essentials\WelcomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="10 Beyond the basics\" />
+  </ItemGroup>
+</Project>

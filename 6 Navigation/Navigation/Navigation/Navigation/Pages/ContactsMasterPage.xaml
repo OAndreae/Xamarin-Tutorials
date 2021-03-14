@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:models="clr-namespace:Navigation.Models"
+                  mc:Ignorable="d"
+                  x:Class="Navigation.ContactsMasterPage"
+                  Title="Contacts"
+                  Visual="Material">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Title">
+            <ContentPage.Content>
+                <ListView x:Name="listView" ItemSelected="ListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Contact">
+                            <TextCell Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage/>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

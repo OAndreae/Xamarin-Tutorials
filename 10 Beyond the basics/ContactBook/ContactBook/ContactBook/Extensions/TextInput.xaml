@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ContactBook.Extensions.TextInput">
+    <!--<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+                <ColumnDefinition.Width>
+                    <OnPlatform x:TypeArguments="GridLength" Default="auto">
+                        <On Platform="Android" Value="34"/>
+                        <On Platform="UWP" Value="0"/>
+                    </OnPlatform>
+                </ColumnDefinition.Width>
+            </ColumnDefinition>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        --><!--Glyph--><!--
+        <Label Grid.Row="1" Text="{Binding Glyph}"
+               VerticalOptions="Center" 
+               FontSize="Title"
+               Margin="5"
+               FontFamily="{StaticResource MaterialFontFamily}">
+            <Label.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" Default="False">
+                    <On Platform="Android" Value="True"/>
+                </OnPlatform>
+            </Label.IsVisible>
+        </Label>
+
+        --><!--Label--><!--
+        <Label Grid.Column="1" Text="{Binding Label}" VerticalOptions="Center">
+            <Label.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" Default="True">
+                    <On Platform="Android" Value="False"/>
+                </OnPlatform>
+            </Label.IsVisible>
+            <Grid.Row>
+                <OnPlatform x:TypeArguments="x:Int32" Default="1">
+                    <On Platform="Android" Value="1"/>
+                    <On Platform="UWP" Value="0"/>
+                </OnPlatform>
+            </Grid.Row>
+            <Label.Margin>
+                <OnPlatform x:TypeArguments="Thickness" Default="5">
+                    <On Platform="UWP" Value="0"/>
+                </OnPlatform>
+            </Label.Margin>
+        </Label>
+
+
+        <Entry Grid.Column="1" 
+               Grid.Row="1"
+               Placeholder="{Binding Label}"
+               Text="{Binding Text}" 
+               Visual="Default" 
+               FontSize="Small"
+               HorizontalOptions="FillAndExpand"/>
+    </Grid>-->
+
+    <StackLayout Margin="{Binding Margin}" Visual="{Binding Visual}">
+        <StackLayout.Orientation>
+            <OnPlatform x:TypeArguments="StackOrientation" Default="Horizontal">
+                <On Platform="UWP" Value="Vertical"/>
+            </OnPlatform>
+        </StackLayout.Orientation>
+        <!--Side label-->
+        <Label x:Name="sideLabel" VerticalOptions="Center">
+            <Label.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" Default="False">
+                    <On Platform="UWP" Value="True"/>
+                </OnPlatform>
+            </Label.IsVisible>
+        </Label>
+
+        <Grid>
+            <Grid.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" Default="True">
+                    <On Platform="UWP" Value="False"/>
+                </OnPlatform>
+            </Grid.IsVisible>
+            <Label x:Name="blankGlyph" Text="" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontFamily="{StaticResource MaterialFontFamily}" 
+                   FontSize="Title"
+                   WidthRequest="30"
+                   TextColor="Transparent">
+            </Label>        
+            <!--Glyph label-->
+            <Label x:Name="glyph"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontFamily="{StaticResource MaterialFontFamily}"
+                   WidthRequest="30"
+                   FontSize="Title"/>
+        </Grid>
+
+        <Entry x:Name="entry"
+               Keyboard="{Binding Keyboard}"
+               HorizontalOptions="FillAndExpand" 
+               BackgroundColor="{Binding BackgroundColor}"/>
+    </StackLayout>
+</ContentView>

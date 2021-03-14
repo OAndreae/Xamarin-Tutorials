@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:Navigation.Models"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             mc:Ignorable="d"
+             x:Class="Navigation.ActivityPage">
+    <ListView x:Name="listView" ItemSelected="OnActivitySelected" HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="models:Activity">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <ic:CircleImage Source="{Binding ImageUrl}" WidthRequest="30" HeightRequest="30" Aspect="AspectFit"/>
+                        <Label Text="{Binding Description}" HorizontalOptions="StartAndExpand"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>    
+    </ListView>
+</ContentPage>

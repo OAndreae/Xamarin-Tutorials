@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Navigation"
+             xmlns:models="clr-namespace:Navigation.Models"
+             mc:Ignorable="d"
+             x:Class="Navigation.TabbedShell"
+             x:Name="tabbedPage"
+             Title="{Binding Source={x:Reference tabbedPage}, Path=CurrentPage.Title}"
+            NavigationPage.HasNavigationBar="False">
+    <local:ActivityPage Title="Activities">
+        <local:ActivityPage.IconImageSource>
+            <FontImageSource Glyph="{Binding Source={x:Static local:IconFont.Heart}}" Size="20" Color="Black"/>
+        </local:ActivityPage.IconImageSource>
+    </local:ActivityPage>
+    <local:MyProfilePage Title="Profile">
+        <local:MyProfilePage.IconImageSource>
+            <FontImageSource Glyph="{Binding Source={x:Static local:IconFont.Account}}" Size="20" Color="Black"/>
+        </local:MyProfilePage.IconImageSource>
+    </local:MyProfilePage>
+</TabbedPage>

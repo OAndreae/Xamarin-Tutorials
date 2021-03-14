@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    <!--Solution to Layouts Absolute exercise 2-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinTutorials.RelaxPage">
+    <AbsoluteLayout>
+        <Image AbsoluteLayout.LayoutBounds="0,0,1,1" 
+               AbsoluteLayout.LayoutFlags="All" 
+               Source="https://flower-wallpaper.org/wp-content/uploads/2017/01/jamaica-flower-wallpaper7.jpg" Aspect="AspectFill"/>
+        <Label  AbsoluteLayout.LayoutBounds="0,20,1,1" 
+                AbsoluteLayout.LayoutFlags="SizeProportional" 
+                Text="Relax" 
+                FontSize="30" 
+                TextColor="White"
+                HorizontalTextAlignment="Center"/>
+        <BoxView AbsoluteLayout.LayoutBounds="0,1,1,100" 
+                 AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" 
+                 Opacity="0.5"
+                 BackgroundColor="Black"/>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,1,1,100" 
+                     AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional"  
+                     Orientation="Horizontal"
+                     Padding="30,0">
+            <Label Text="Profile" 
+                   FontSize="15" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   TextColor="White"/>
+            <Label Text="Meditate" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"/>
+            <Label Text="Themes" 
+                   FontSize="15" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   TextColor="White"/>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

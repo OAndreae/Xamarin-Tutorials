@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    <!--Solution to Layouts grid exercise 1-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinTutorials.DialPage"
+             BackgroundColor="#354242"
+             Visual="Material"
+             Title="Dial page">
+    <Grid Padding="40" RowSpacing="10" ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="BackgroundColor" Value="#fff"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="30"/>                    
+            </Style>
+        </Grid.Resources>
+
+        <Label Grid.ColumnSpan="3"
+               Text="1234"
+               FontSize="50" 
+               TextColor="White" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="1"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="2"/>
+            <Button Grid.Row="1" Grid.Column="2" Text="3"/>
+            <Button Grid.Row="2" Grid.Column="0" Text="4"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="5"/>
+            <Button Grid.Row="2" Grid.Column="2" Text="6"/>
+            <Button Grid.Row="3" Grid.Column="0" Text="7"/>
+            <Button Grid.Row="3" Grid.Column="1" Text="8"/>
+            <Button Grid.Row="3" Grid.Column="2" Text="9"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="0"/>
+            <Button Grid.Row="5" Grid.ColumnSpan="3" Text="Dial" BackgroundColor="#96ca2d" />
+    </Grid>
+</ContentPage>

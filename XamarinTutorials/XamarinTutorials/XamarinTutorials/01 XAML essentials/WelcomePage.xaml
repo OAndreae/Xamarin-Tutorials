@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--solution to Getting Started exercise-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinTutorials.WelcomePage"
+             Visual="Material">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Label Text="Hello! What's your name?" HorizontalOptions="Center"/>
+        <Entry x:Name="name" Placeholder="e.g. John" WidthRequest="300" />
+        <Button Text="Click me" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Clicked="Button_Clicked"/>
+    </StackLayout>
+</ContentPage>

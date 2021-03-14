@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:ext="clr-namespace:FormsExamples.Extensions"
+             mc:Ignorable="d"
+             x:Class="FormsExamples.MainPage"
+             Visual="Material">
+    <ScrollView>
+        <StackLayout Padding="40">
+            <Label Text="Switch" FontSize="Title"/>
+            <Switch x:Name="switch"/>
+            <Label Text="{Binding Source={x:Reference switch}, Path=IsToggled, StringFormat='Switch toggled: {0}'}"/>
+
+            <Label Text="Slider" FontSize="Title" Margin="0,40,0,0"/>
+            <Slider x:Name="slider" Maximum="255" Minimum="0"/>
+            <Label Text="{Binding Source={Reference slider}, Path=Value, StringFormat='Value: {0:N0}'}"/>
+            <Label Text="Notes" FontSize="Subtitle"/>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span>
+                            The maximum should be set before the minimum. This ensures that the maximum is always greater than the default minimum (0).
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Text="Stepper" FontSize="Title" Margin="0,40,0,0"/>
+            <Stepper x:Name="stepper" Maximum="10" Minimum="1" Increment="1"/>
+            <Label Text="{Binding Source={x:Reference stepper}, Path=Minimum, StringFormat='Minimum value: {0}'}"/>
+            <Label Text="{Binding Source={x:Reference stepper}, Path=Maximum, StringFormat='Maximum value: {0}'}"/>
+            <Label Text="{Binding Source={x:Reference stepper}, Path=Value, StringFormat='Value: {0}'}"/>
+
+            <Label Text="Entry" FontSize="Title" Margin="0,40,0,0"/>
+            <Entry Placeholder="Phone number" Keyboard="Telephone" />
+            <Entry Placeholder="Email" Keyboard="Email" />
+            <Entry Placeholder="Password" IsPassword="True"/>
+
+            <Label Text="Editor" FontSize="Title" Margin="0,40,0,0"/>
+            <Editor Placeholder="Please type here." AutoSize="TextChanges" IsTextPredictionEnabled="True" IsSpellCheckEnabled="True"/>
+
+            <Label Text="Picker" FontSize="Title" Margin="0,40,0,0"/>
+            <Picker Title="Contact preference">
+                <Picker.Items>
+                    <x:String>SMS</x:String>
+                    <x:String>Email</x:String>
+                    <x:String>Post</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Date and time pickers" FontSize="Title" Margin="0,40,0,0"/>
+            <!--Date defaults to today's date-->
+            <DatePicker Format="dddd MMMM yyyy" Date="{Static sys:DateTime.Now}" />
+            <TimePicker Time="13:48:56"/>
+
+            <Label Text="TableView" FontSize="Title" Margin="0,40,0,0"/>
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection>
+                        <TextCell Text="Oliver Andreae"/>
+                        <EntryCell Label="First name" Placeholder="John"/>
+                        <EntryCell Label="Surname" Placeholder="Doe" />
+                        <SwitchCell Text="Notifications"/>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Start date" VerticalOptions="Center" FontSize="Body"/>
+                                <DatePicker HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ext:DateCell Label="End date"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

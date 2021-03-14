@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:XamarinTutorials.Models"
+             mc:Ignorable="d"
+             x:Class="XamarinTutorials.RecipesPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="OnAdd"/>
+        <ToolbarItem Text="Update" Clicked="OnUpdate"/>
+        <ToolbarItem Text="Delete" Clicked="OnDelete"/>
+    </ContentPage.ToolbarItems>
+    <ListView x:Name="recipesListView">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="models:Recipe" >
+                <TextCell Text="{Binding Name}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>    
+    </ListView>
+</ContentPage>

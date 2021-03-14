@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:Navigation"
+             mc:Ignorable="d"
+             x:Class="Navigation.MyProfilePage">
+    <NavigationPage.TitleView>
+        <Grid MinimumHeightRequest="20">
+            <Label FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" FontSize="Large">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="oli.andreae"/>
+                        <Span Text="{Binding Source={Static local:IconFont.ChevronDown}}" FontFamily="{StaticResource MaterialFontFamily}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Button Text="{Binding Source={x:Static local:IconFont.Menu}}" 
+                    FontFamily="{StaticResource MaterialFontFamily}"
+                    HorizontalOptions="End"
+                    FontSize="Title"
+                    BackgroundColor="Transparent">
+            </Button>
+        </Grid>
+    </NavigationPage.TitleView>
+    <StackLayout>
+        <StackLayout Padding="10">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" >
+                <ic:CircleImage Source="https://placeimg.com/100/100/people/{0}" 
+                                    WidthRequest="80" 
+                                    HeightRequest="80"
+                                    Aspect="AspectFit"/>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+                    <Label Text="58" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="Large"/>
+                    <Label Text="Posts" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+                    <Label Text="4,584" FontAttributes="Bold" HorizontalTextAlignment="Center"  FontSize="Large"/>
+                    <Label Text="Followers" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+                    <Label Text="5,879" FontAttributes="Bold" HorizontalTextAlignment="Center"  FontSize="Large"/>
+                    <Label Text="Following" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+            </StackLayout>
+            <Label Text="Oliver" FontAttributes="Bold"/>
+            <Label Text="Run. Row. Read."/>
+            <Label Text="www.microsoft.com/store/apps/9nblggh684r1" TextColor="DarkBlue"/>
+            <Button Text="Edit Profile" BackgroundColor="White" BorderColor="LightGray" TextColor="Black"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

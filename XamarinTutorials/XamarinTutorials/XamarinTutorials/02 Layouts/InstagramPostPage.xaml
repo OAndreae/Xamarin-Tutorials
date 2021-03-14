@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Solution to Layouts Stack exercise 2-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinTutorials.InstagramPostPage"
+             Visual="Material">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0"/>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout x:Name="layout">
+            <Label Text="nyc_photographer" Margin="10"/>
+            <Image Source="http://lorempixel.com/1920/1080/nature/3/" />
+
+            <StackLayout Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Like"/>
+                    <Button Text="Comment"/>
+                    <Button Text="Share"/>
+                </StackLayout>
+                <BoxView HeightRequest="1" Color="#f0f0f0"/>
+                <Label Text="700 likes" FontAttributes="Bold"/>
+                <Label Text="This is a shot yesterday in Skanor, Sweden, when driving homoe, from a couple of days work in Denmark."/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

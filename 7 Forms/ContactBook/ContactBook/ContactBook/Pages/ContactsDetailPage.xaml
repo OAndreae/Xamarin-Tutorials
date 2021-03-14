@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:ContactBook"
+             xmlns:ext="clr-namespace:ContactBook.Extensions"
+             mc:Ignorable="d"
+             x:Class="ContactBook.ContactsDetailPage"
+             Title="New Contact">
+    <StackLayout Visual="Material"  Margin="10">
+        <!--<TableView Margin="13,0" Intent="Form">
+            <TableRoot>
+                <TableSection Title="Name">
+                    <EntryCell Label="First name"/>
+                    <EntryCell Label="Surname"/>
+                    <EntryCell Label="Phone" Keyboard="Telephone"/>
+                    <EntryCell Label="Email" Keyboard="Email"/>
+                    <SwitchCell Text="Blocked"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>-->
+
+        <!--<Label Text="Name" FontSize="Medium" Margin="0,10,0,0"/>
+        <ext:TextInput x:Name="firstNameInput" Label="First name" Glyph="{Binding Source={Static local:IconFont.AccountOutline}}" Text="{Binding FirstName}" Visual="Default"/>
+        <ext:TextInput x:Name="surnameInput" Label="Surname" BackgroundColor="Transparent" Text="{Binding Surname}" Visual="Default"/>
+        
+        <Label Text="Contact" FontSize="Medium" Margin="0,10,0,0"/>
+        <ext:TextInput x:Name="phoneInput" Glyph="{Binding Source={Static local:IconFont.Phone}}" Label="Phone" Text="{Binding PhoneNumber}" Visual="Default"/>
+        <ext:TextInput x:Name="emailInput" Glyph="{Binding Source={Static local:IconFont.EmailOutline}}" Label="Email" Text="{Binding Email}" Visual="Default"/>
+
+        <Label Text="Other" FontSize="Medium" Margin="0,10,0,0"/>
+        <ext:SwitchInput x:Name="blockedInput" Glyph="{Binding Source={Static local:IconFont.BlockHelper}}" Label="Blocked" IsToggled="{Binding IsBlocked}"/>-->
+
+        <Label Text="Name" FontSize="Medium" Margin="0,10,0,0"/>
+        <Entry x:Name="firstNameInput" Placeholder="First name" Text="{Binding FirstName}" Visual="Default"/>
+        <Entry x:Name="surnameInput" Placeholder="Surname" Text="{Binding Surname}" Visual="Default"/>
+
+        <Label Text="Contact" FontSize="Medium" Margin="0,10,0,0"/>
+        <Entry x:Name="phoneInput" Placeholder="Phone" Text="{Binding PhoneNumber}" Visual="Default"/>
+        <Entry x:Name="emailInput" Placeholder="Email" Text="{Binding Email}" Visual="Default"/>
+
+        <Label Text="Other" FontSize="Medium" Margin="0,10,0,0"/>
+        <Switch x:Name="blockedInput" IsToggled="{Binding IsBlocked}"/>
+
+        <Button Text="Save" VerticalOptions="EndAndExpand" Clicked="Save_Clicked"/>
+    </StackLayout>
+    
+</ContentPage>

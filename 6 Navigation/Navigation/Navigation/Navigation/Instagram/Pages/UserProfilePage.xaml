@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:Navigation"
+             xmlns:models="clr-namespace:Navigation.Instagram.Models"
+             mc:Ignorable="d"
+             x:Class="Navigation.UserProfilePage">
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" MinimumHeightRequest="20">
+            <ImageButton Clicked="OnBackButtonClicked"
+                         BackgroundColor="Transparent"
+                         BorderColor="Transparent"
+                         HorizontalOptions="End"
+                         MinimumWidthRequest="10"
+                         BorderWidth="0"
+                         Padding="1,0">
+                <ImageButton.Source>
+                    <FontImageSource Glyph="{Binding Source={Static local:IconFont.ArrowLeft}}" 
+                                     FontFamily="{StaticResource MaterialFontFamily}" 
+                                     Color="Black"
+                                     Size="25" />
+                </ImageButton.Source>
+                <ImageButton.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean" Default="True">
+                        <On Platform="UWP" Value="False"/>
+                    </OnPlatform>
+                    </ImageButton.IsVisible>
+            </ImageButton>
+            <Label Text="{Binding Name}"
+                   FontAttributes="Bold" 
+                   HorizontalOptions="StartAndExpand" 
+                   VerticalOptions="Center" 
+                   FontSize="Subtitle"/>
+            <ImageButton Clicked="OnMoreClicked"
+                         BackgroundColor="Transparent"
+                         BorderColor="Transparent"
+                         HorizontalOptions="End"
+                         MinimumWidthRequest="10"
+                         BorderWidth="0"
+                         Padding="5,0">
+                <ImageButton.Source>
+                    <FontImageSource Glyph="{Binding Source={Static local:IconFont.DotsVertical}}" 
+                                     FontFamily="{StaticResource MaterialFontFamily}" 
+                                     Color="Black"
+                                     Size="25" />
+                </ImageButton.Source>
+            </ImageButton>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <NavigationPage.HasBackButton>
+        <OnPlatform x:TypeArguments="x:Boolean" Default="False">
+            <On Platform="UWP" Value="True"/>
+        </OnPlatform>
+    </NavigationPage.HasBackButton>
+    
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="CornerRadius" Value="2"/>
+            <Setter Property="BorderColor" Value="LightGray"/>
+            <Setter Property="BorderWidth" Value="1"/>
+        </Style>
+        <Style TargetType="Button" x:Key="Icon">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="{StaticResource MaterialFontFamily}"/>
+            <Setter Property="FontSize" Value="Title"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout Padding="10">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" >
+                    <ic:CircleImage Source="{Binding ImageUrl}" 
+                                    WidthRequest="100" 
+                                    HeightRequest="100"
+                                    Aspect="AspectFit"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+                        <Label Text="{Binding Posts.Count}" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="Large"/>
+                        <Label Text="Posts" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                        <Label Text="4,584" FontAttributes="Bold" HorizontalTextAlignment="Center"  FontSize="Large"/>
+                        <Label Text="Followers" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                        <Label Text="5,879" FontAttributes="Bold" HorizontalTextAlignment="Center"  FontSize="Large"/>
+                        <Label Text="Following" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+
+                </StackLayout>
+                <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                <Label Text="{Binding Bio}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Follow" BackgroundColor="DodgerBlue"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Message" 
+                            HorizontalOptions="FillAndExpand"
+                            TextColor="Black"/>
+                    <Button Text="{Binding Source={Static local:IconFont.MenuDown}}"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            TextColor="Black"
+                            WidthRequest="30"/>
+                </StackLayout>
+            </StackLayout>
+            <CollectionView x:Name="postsView" ItemsSource="{Binding Posts}" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Span="3" 
+                                     Orientation="Vertical"
+                                     HorizontalItemSpacing="2"
+                                     VerticalItemSpacing="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Post">
+                        <Image Source="{Binding ImageUrl}" WidthRequest="250" HeightRequest="250" Aspect="AspectFill" HorizontalOptions="Fill" Margin="5"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
